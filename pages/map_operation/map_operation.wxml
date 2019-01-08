@@ -1,0 +1,20 @@
+<view class="page-body">
+    <view class="page-section page-section-gap">
+        <map id="myMap" style="width: 100%; height: 500px;" latitude="{{latitude}}" scale="18" longitude="{{longitude}}" show-location>
+            <cover-image class="center-point" src="/image/center-point.png"></cover-image>
+            <cover-view class="input-info" bindtap="tapInput">
+                {{inputInfo}}
+                <input class="hide" value="{{searchText}}" focus="{{inputFocus}}" bindblur="blurInput"></input>
+            </cover-view>
+            <cover-view class="select-info" style="{{selectHeight}}">
+                <cover-view class="selected" bindtap="tapSelect">{{selectInfo}}</cover-view>
+                <cover-view class="select-list" bindtap="tapSelectClose">
+                    <cover-view class="select-item" wx:for="{{selectList}}" wx:key="{{item}}" data-item="{{item}}" bindtap="selectItem">
+                        <cover-view class="item" style="{{ item === selectInfo ? 'color:green' : ''}}">{{item}}</cover-view>
+                    </cover-view>
+                </cover-view>
+                <cover-view class="select-cancel" bindtap="tapSelectClose">取 消</cover-view>
+            </cover-view>
+        </map>
+    </view>
+</view>
